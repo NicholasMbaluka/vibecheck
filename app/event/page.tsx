@@ -124,10 +124,10 @@ export default function EventPage() {
     })
     const json = await res.json()
 
-    setLikedIds((prev) => new Set([...prev, receiverId]))
+    setLikedIds((prev) => new Set(Array.from(prev).concat(receiverId)))
 
     if (json.match) {
-      setMatchedIds((prev) => new Set([...prev, receiverId]))
+      setMatchedIds((prev) => new Set(Array.from(prev).concat(receiverId)))
       // Show brief notification then navigate
       setTimeout(() => router.push('/matches'), 1200)
     }
