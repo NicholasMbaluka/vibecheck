@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Syne, DM_Sans } from 'next/font/google'
 import './globals.css'
+import { createSupabaseServerClient } from '@/lib/supabase'
+import SupabaseProvider from '@/components/SupabaseProvider'
 
 const syne = Syne({
   subsets: ['latin'],
@@ -27,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${syne.variable} ${dmSans.variable} font-body bg-surface-900 text-white min-h-screen`}>
-        {children}
+        <SupabaseProvider>
+          {children}
+        </SupabaseProvider>
       </body>
     </html>
   )
