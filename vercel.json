@@ -12,5 +12,10 @@
   "devCommand": "npm run dev",
   "git": {
     "deploymentEnabled": true
+  },
+  "build": {
+    "env": {
+      "FORCE_NEW_BUILD": "2025-04-20-13-32"
+    }
   }
 }
